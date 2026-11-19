@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment files
+.env
+.env.*
+
+# Editor swap, backup, and local workspace files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+!.vscode/extensions.json
