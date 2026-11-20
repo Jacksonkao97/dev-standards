@@ -15,6 +15,7 @@ Rather than maintaining static starter repositories with pinned `package.json` a
 ```text
 dev-standards/
 ├── README.md
+├── LICENSE
 ├── .gitignore
 ├── common/
 │   └── BASE_RULES.md                 # Universal rules across all frameworks
@@ -90,3 +91,9 @@ To add another framework (for example, `fastapi`, `astro`, or `python-cli`):
 2. Dry-run `BOOTSTRAP.md` end-to-end in a temporary directory and verify that all check commands (`typecheck`, `lint`, `format:check`, `build`) pass with exit code `0`.
 3. Add the new stack to the **Stack Catalog** table in this `README.md`.
 4. Commit with a Conventional Commit message (e.g., `feat(stacks): add <stack-name> stack`).
+
+---
+
+## License
+
+MIT — see [`LICENSE`](LICENSE) for details.
