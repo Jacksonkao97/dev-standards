@@ -19,8 +19,18 @@ dev-standards/
 ├── common/
 │   └── BASE_RULES.md                 # Universal rules across all frameworks
 └── stacks/
-    └── nextjs/
-        ├── RULES.md                  # Next.js 16+ coding style & architecture guide
+    ├── nextjs/
+    │   ├── RULES.md                  # Next.js 16+ coding style & architecture guide
+    │   ├── BOOTSTRAP.md              # Step-by-step reproducible bootstrap recipe
+    │   └── files/                    # Version-safe config & agent overlays
+    │       ├── AGENTS.md             # Tool-agnostic project rules (~120–160 lines)
+    │       ├── CLAUDE.md             # Pointer file (@AGENTS.md)
+    │       ├── .oxlintrc.json        # Native Rust Oxlint configuration
+    │       ├── .prettierrc           # Prettier + Tailwind CSS v4 sorting
+    │       ├── .prettierignore
+    │       └── .editorconfig
+    └── reactjs/
+        ├── RULES.md                  # React 19 + Vite 8 SPA coding style & architecture guide
         ├── BOOTSTRAP.md              # Step-by-step reproducible bootstrap recipe
         └── files/                    # Version-safe config & agent overlays
             ├── AGENTS.md             # Tool-agnostic project rules (~120–160 lines)
@@ -38,6 +48,7 @@ dev-standards/
 | Stack | Status | Core Defaults | Guides |
 | --- | --- | --- | --- |
 | `nextjs` | Active | Next.js 16+ App Router, TypeScript strict (`noUncheckedIndexedAccess`), Turbopack, Tailwind CSS v4, `lucide-react`, `zod`, `server-only`, Oxlint, Prettier | [`RULES.md`](stacks/nextjs/RULES.md) · [`BOOTSTRAP.md`](stacks/nextjs/BOOTSTRAP.md) |
+| `reactjs` | Active | Vite 8 + React 19 SPA, React Compiler, TypeScript strict (`noUncheckedIndexedAccess`), Tailwind CSS v4 (`@tailwindcss/vite`), `lucide-react`, `zod`, Oxlint, Prettier | [`RULES.md`](stacks/reactjs/RULES.md) · [`BOOTSTRAP.md`](stacks/reactjs/BOOTSTRAP.md) |
 
 ---
 
@@ -70,7 +81,7 @@ Every stack overlay centers on a plain, tool-agnostic **`AGENTS.md`** file with 
 
 ## Adding a New Stack
 
-To add another framework (for example, `fastapi`, `vite-react`, or `astro`):
+To add another framework (for example, `fastapi`, `astro`, or `python-cli`):
 
 1. Create `stacks/<stack-name>/` with three items:
    - `RULES.md` — Stack-specific toolchain, folder architecture, conventions, testing defaults, and Mandatory Freshness & Breaking-Change Check (extending `common/BASE_RULES.md`).
