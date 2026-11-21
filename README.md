@@ -20,6 +20,16 @@ dev-standards/
 ├── common/
 │   └── BASE_RULES.md                 # Universal rules across all frameworks
 └── stacks/
+    ├── expo/
+    │   ├── RULES.md                  # Expo SDK 58+ (React Native) coding style & architecture guide
+    │   ├── BOOTSTRAP.md              # Step-by-step reproducible bootstrap recipe
+    │   └── files/                    # Version-safe config & agent overlays
+    │       ├── AGENTS.md             # Tool-agnostic project rules (~120–160 lines)
+    │       ├── CLAUDE.md             # Pointer file (@AGENTS.md)
+    │       ├── eslint.config.js      # Expo official ESLint flat config + Prettier compat
+    │       ├── .prettierrc           # Prettier formatting config
+    │       ├── .prettierignore
+    │       └── .editorconfig
     ├── nextjs/
     │   ├── RULES.md                  # Next.js 16+ coding style & architecture guide
     │   ├── BOOTSTRAP.md              # Step-by-step reproducible bootstrap recipe
@@ -48,6 +58,7 @@ dev-standards/
 
 | Stack | Status | Core Defaults | Guides |
 | --- | --- | --- | --- |
+| `expo` | Active | Expo SDK 58+ mobile-only (iOS + Android), Expo Router (`src/app/`), React Compiler, TypeScript strict (`noUncheckedIndexedAccess`), `StyleSheet.create`, `expo-symbols`, `zod`, ESLint (`eslint-config-expo`), Prettier | [`RULES.md`](stacks/expo/RULES.md) · [`BOOTSTRAP.md`](stacks/expo/BOOTSTRAP.md) |
 | `nextjs` | Active | Next.js 16+ App Router, TypeScript strict (`noUncheckedIndexedAccess`), Turbopack, Tailwind CSS v4, `lucide-react`, `zod`, `server-only`, Oxlint, Prettier | [`RULES.md`](stacks/nextjs/RULES.md) · [`BOOTSTRAP.md`](stacks/nextjs/BOOTSTRAP.md) |
 | `reactjs` | Active | Vite 8 + React 19 SPA, React Compiler, TypeScript strict (`noUncheckedIndexedAccess`), Tailwind CSS v4 (`@tailwindcss/vite`), `lucide-react`, `zod`, Oxlint, Prettier | [`RULES.md`](stacks/reactjs/RULES.md) · [`BOOTSTRAP.md`](stacks/reactjs/BOOTSTRAP.md) |
 
@@ -70,7 +81,7 @@ Every stack overlay centers on a plain, tool-agnostic **`AGENTS.md`** file with 
 
 ### Cursor
 
-- Cursor reads `AGENTS.md` directly at the repository root (and respects `.editorconfig`, `.prettierrc`, and `.oxlintrc.json`).
+- Cursor reads `AGENTS.md` directly at the repository root (and respects `.editorconfig`, `.prettierrc`, and the stack's linter config such as `.oxlintrc.json` or `eslint.config.js`).
 - No separate `.cursorrules` duplication is needed; keep `AGENTS.md` as the single source of truth.
 
 ### Codex
